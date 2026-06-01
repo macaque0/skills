@@ -7,7 +7,7 @@
 - 先检查本机是否安装 HBuilderX CLI，或项目文档中是否记录了启动方式。
 - Windows 上 HBuilderX 安装目录下可能存在 `cli.exe`，但具体路径因安装位置不同而不同。
 - 找到可执行文件后，先运行帮助命令，再决定使用哪些参数。
-- 可用时，使用 HBuilderX 对 `wellness_uniapp` 进行编译、运行或生成微信小程序项目。
+- 可用时，使用 HBuilderX 对当前 uni-app 项目进行编译、运行或生成微信小程序项目。
 
 如果 CLI 不可用，让用户在 HBuilderX 中打开项目并提供编译结果，或输出人工验证清单。
 

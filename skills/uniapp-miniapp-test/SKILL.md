@@ -1,6 +1,6 @@
 ---
 name: uniapp-miniapp-test
-description: Test uni-app WeChat mini program changes with AI-driven validation. Use when the user asks to test, verify, QA, debug, or generate a test plan for a uni-app / wellness_uniapp / WeChat mini program page, pages.json route, subpackage, login/auth, API integration, payment, location, scan, subscription message, or HBuilderX / WeChat DevTools CLI workflow.
+description: Test uni-app WeChat mini program changes with AI-driven validation. Use when the user asks to test, verify, QA, debug, or generate a test plan for a uni-app / WeChat mini program page, pages.json route, subpackage, login/auth, API integration, payment, location, scan, subscription message, or HBuilderX / WeChat DevTools CLI workflow.
 ---
 
 # Uni-App 小程序测试
@@ -11,7 +11,7 @@ description: Test uni-app WeChat mini program changes with AI-driven validation.
 
 1. 识别本次改动功能和目标小程序入口。
    - 先读取 `pages.json`。
-   - 再按需检查目标页面、组件、接口封装、`common/js` 和 `manifest.json`。
+   - 再按需检查目标页面、组件、接口封装、公共工具目录和 `manifest.json`。
 2. 将验证内容拆成：
    - 构建或编译检查。
    - 路由和分包检查。
@@ -52,6 +52,7 @@ description: Test uni-app WeChat mini program changes with AI-driven validation.
 - TabBar、页面跳转、重定向、返回行为是否仍然有效。
 - 新增页面是否使用了正确的页面样式和权限配置。
 - 分包改动是否破坏包边界。
+- 如果项目使用自定义目录结构，先从 `pages.json` 和页面 import 关系反推真实入口，不假设固定目录名。
 
 ### 页面交互
 
