@@ -1,30 +1,30 @@
-# Uni-App Mini Program Tooling
+# Uni-App 小程序测试工具参考
 
-Use this reference when actual HBuilderX or WeChat DevTools execution is needed.
+当需要实际执行 HBuilderX 或微信开发者工具相关验证时，读取本文档。
 
 ## HBuilderX
 
-- First inspect whether HBuilderX CLI is installed or documented in the local project setup.
-- On Windows, common installations may expose a `cli.exe` under the HBuilderX installation directory, but paths vary.
-- Run the discovered executable with help output before assuming commands.
-- Use HBuilderX to compile or run `wellness_uniapp` when available.
+- 先检查本机是否安装 HBuilderX CLI，或项目文档中是否记录了启动方式。
+- Windows 上 HBuilderX 安装目录下可能存在 `cli.exe`，但具体路径因安装位置不同而不同。
+- 找到可执行文件后，先运行帮助命令，再决定使用哪些参数。
+- 可用时，使用 HBuilderX 对 `wellness_uniapp` 进行编译、运行或生成微信小程序项目。
 
-If CLI is unavailable, ask the user to open the project in HBuilderX and provide compile output, or provide a manual checklist.
+如果 CLI 不可用，让用户在 HBuilderX 中打开项目并提供编译结果，或输出人工验证清单。
 
-## WeChat DevTools CLI
+## 微信开发者工具 CLI
 
-- Check whether WeChat DevTools CLI is installed or available on `PATH`.
-- CLI names and flags differ by version; run help first.
-- Use CLI for project open, compile/build checks, preview QR generation, or automation only when supported by the installed version.
-- Use DevTools Network, Console, and compile logs to verify API calls and runtime errors.
+- 检查微信开发者工具 CLI 是否安装，或是否已经加入 `PATH`。
+- 不同版本 CLI 名称和参数可能不同，先运行帮助命令。
+- 仅在已安装版本支持时，使用 CLI 打开项目、执行编译检查、生成预览二维码或做基础自动化验证。
+- 使用开发者工具的 Network、Console 和编译日志验证接口请求、响应和运行错误。
 
-Do not upload, submit review, or change AppID without explicit user confirmation.
+未经用户明确确认，不上传体验版、不提交审核、不修改 AppID。
 
-## Evidence To Capture
+## 需要记录的证据
 
-- command and result
-- page path
-- console error
-- network request and response summary
-- screenshot path
-- manual blocker reason
+- 执行的命令和结果。
+- 页面路径。
+- 控制台错误。
+- 接口请求和响应摘要。
+- 截图路径。
+- 无法自动验证的阻塞原因。

@@ -3,89 +3,89 @@ name: uniapp-miniapp-test
 description: Test uni-app WeChat mini program changes with AI-driven validation. Use when the user asks to test, verify, QA, debug, or generate a test plan for a uni-app / wellness_uniapp / WeChat mini program page, pages.json route, subpackage, login/auth, API integration, payment, location, scan, subscription message, or HBuilderX / WeChat DevTools CLI workflow.
 ---
 
-# Uni-App Miniapp Test
+# Uni-App 小程序测试
 
-Use this skill to make Codex actively test uni-app WeChat mini program changes instead of only writing a checklist.
+使用这个 skill 时，Codex 应尽量实际测试 uni-app 微信小程序改动，而不是只生成测试清单。
 
-## Core Workflow
+## 核心流程
 
-1. Identify the changed feature and target mini program entry.
-   - Read `pages.json` first.
-   - Then inspect the target page, components, API wrappers, `common/js`, and `manifest.json` only when relevant.
-2. Split validation into:
-   - build or compile checks
-   - route and subpackage checks
-   - page interaction checks
-   - API request/response checks
-   - login/auth checks
-   - platform capability checks
-   - regression checks
-3. Prefer actual execution with local tools.
-4. Record evidence: command output, page path, console errors, network responses, screenshots, or clear blocker reason.
-5. If AI cannot complete a real-device or authenticated step, produce precise manual verification steps with expected results.
-6. If defects are found, localize the likely file, fix when requested, and re-test the affected path.
+1. 识别本次改动功能和目标小程序入口。
+   - 先读取 `pages.json`。
+   - 再按需检查目标页面、组件、接口封装、`common/js` 和 `manifest.json`。
+2. 将验证内容拆成：
+   - 构建或编译检查。
+   - 路由和分包检查。
+   - 页面交互检查。
+   - 接口请求和响应检查。
+   - 登录和授权检查。
+   - 微信平台能力检查。
+   - 回归影响检查。
+3. 优先使用本地工具实际执行测试。
+4. 记录测试证据：命令输出、页面路径、控制台错误、接口响应、截图或明确的阻塞原因。
+5. 如果 AI 无法完成真机或登录授权步骤，输出明确的人工验证步骤和预期结果。
+6. 如果发现问题，定位可能的文件；用户要求修复时，完成修复并重新验证受影响路径。
 
-## Tool Selection
+## 工具选择
 
-Use available tools in this order:
+按以下顺序使用可用工具：
 
-1. File/code inspection for routes, page logic, API calls, and config.
-2. HBuilderX CLI if configured locally.
-3. WeChat DevTools CLI if configured locally.
-4. WeChat DevTools UI / logs / screenshots when accessible.
-5. Real-device verification for platform capabilities.
+1. 先通过文件和代码检查路由、页面逻辑、接口调用和配置。
+2. 如果本机已配置 HBuilderX CLI，优先尝试使用。
+3. 如果本机已配置微信开发者工具 CLI，优先尝试使用。
+4. 如果能访问微信开发者工具界面、日志或截图，结合它们验证。
+5. 涉及微信平台真实能力时，准备真机验证步骤。
 
-Before using HBuilderX or WeChat DevTools CLI:
+使用 HBuilderX 或微信开发者工具 CLI 前：
 
-- Check whether the executable exists or is on `PATH`.
-- Run its help command if unsure about supported flags.
-- Do not invent CLI flags; versions differ.
-- If unavailable, state the blocker and provide a substitute manual path.
+- 先检查可执行文件是否存在或是否在 `PATH` 中。
+- 不确定参数时，先运行帮助命令。
+- 不要凭空编造 CLI 参数；不同版本参数可能不同。
+- 如果工具不可用，说明阻塞原因，并提供替代的人工验证路径。
 
-For detailed local-tool guidance, read `references/tooling.md` when CLI or DevTools execution is needed.
+当需要执行 HBuilderX 或微信开发者工具 CLI 时，读取 `references/tooling.md`。
 
-## Test Focus
+## 测试重点
 
-### Build And Route
+### 构建和路由
 
-- `pages.json` contains the page path or subpackage path.
-- TabBar, navigation, redirects, and back behavior remain valid.
-- Added pages use the intended style and permission configuration.
-- Subpackage changes do not break package boundaries.
+- `pages.json` 中是否包含目标页面路径或分包路径。
+- TabBar、页面跳转、重定向、返回行为是否仍然有效。
+- 新增页面是否使用了正确的页面样式和权限配置。
+- 分包改动是否破坏包边界。
 
-### Page Interaction
+### 页面交互
 
-- Initial load, empty data, loading state, error state, and success state are visible and usable.
-- Forms validate required fields, length, format, duplicate submit, and disabled states.
-- Buttons and links trigger the intended actions once.
-- Returned data maps correctly to UI fields.
+- 首次加载、空数据、加载中、失败、成功状态是否可见且可用。
+- 表单是否校验必填、长度、格式、重复提交和禁用状态。
+- 按钮和链接是否只触发预期动作。
+- 接口返回字段是否正确映射到页面展示。
 
-### API Integration
+### 接口集成
 
-- Confirm request URL, method, params, body, headers, and auth token flow.
-- Validate success, business error, network error, timeout, and empty response handling.
-- Check field compatibility when backend DTOs changed.
-- Do not log sensitive values such as tokens, phone numbers, IDs, or payment credentials.
+- 确认请求地址、方法、参数、请求体、请求头和登录态传递。
+- 验证成功、业务失败、网络失败、超时、空响应等场景。
+- 后端 DTO 改动后，检查字段兼容性。
+- 不在日志和报告中暴露 Token、手机号、身份证号、支付凭证等敏感信息。
 
-### Login And Platform Capabilities
+### 登录和微信平台能力
 
-Login, payment, location, scan, subscription messages, sharing, and real authorization often need manual or real-device confirmation.
+登录、支付、定位、扫码、订阅消息、分享、真实授权通常需要人工或真机确认。
 
-AI should still prepare:
+AI 仍然需要准备：
 
-- exact page path
-- preconditions
-- account/role needed
-- operation steps
-- expected UI result
-- expected request/response
-- screenshots or logs to capture
+- 精确页面路径。
+- 前置条件。
+- 所需账号或角色。
+- 操作步骤。
+- 预期页面结果。
+- 预期请求和响应。
+- 需要截图或记录的日志。
 
-Human confirmation is required for payment, production app IDs, upload/submit review, real authorization, and any irreversible operation.
+支付、生产 AppID、上传体验版、提交审核、真实授权、不可逆操作必须由人工确认。
 
-## Output Format
+## 输出格式
 
-Return a compact report:
+返回简洁测试报告：
 
 ```text
 测试范围：
@@ -99,9 +99,9 @@ Return a compact report:
 是否可以进入 Review：
 ```
 
-## Guardrails
+## 约束
 
-- Do not modify `manifest.json`, AppID, production endpoints, or platform configuration unless the user explicitly asks and confirms.
-- Do not upload experience versions, submit review, trigger payment, or change production/test data without explicit confirmation.
-- Keep test fixes scoped to the failing route or component.
-- Prefer existing project scripts and local workflow over introducing new test frameworks.
+- 未经用户明确要求和确认，不修改 `manifest.json`、AppID、生产接口地址或微信平台配置。
+- 未经明确确认，不上传体验版、不提交审核、不触发支付、不修改生产或测试关键数据。
+- 测试修复应限定在失败页面、组件或接口链路内。
+- 优先使用项目已有脚本和本地工作流，不为了测试随意引入新的测试框架。
