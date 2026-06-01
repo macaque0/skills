@@ -1,0 +1,7 @@
+interface:
+  display_name: "Git Work Report"
+  short_description: "Generate daily or weekly reports from Git commits"
+  default_prompt: "Use $git-work-report to generate a merged weekly work report from my configured repositories."
+
+policy:
+  allow_implicit_invocation: false

@@ -1,0 +1,35 @@
+{
+  "timezone": "Asia/Shanghai",
+  "cache_dir": ".git-work-report-cache",
+  "report": {
+    "title": "研发工作周报",
+    "language": "zh-CN"
+  },
+  "repo_labels": {
+    "frontend": "前端",
+    "backend": "服务端"
+  },
+  "scan": {
+    "mode": "mixed",
+    "base_branches": ["develop", "main"],
+    "include_local_branches": true,
+    "include_remote_branches": true
+  },
+  "repositories": [
+    {
+      "name": "frontend",
+      "url": "git@github.com:company/frontend.git",
+      "branches": ["develop"]
+    },
+    {
+      "name": "backend",
+      "url": "git@github.com:company/backend.git",
+      "branches": ["develop", "main"]
+    }
+  ],
+  "authors": {
+    "zhangsan@company.com": "张三",
+    "lisi@company.com": "李四",
+    "Legacy Git Name": "王五"
+  }
+}

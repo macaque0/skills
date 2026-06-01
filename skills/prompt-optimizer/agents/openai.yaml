@@ -1,0 +1,4 @@
+interface:
+  display_name: "Prompt Optimizer"
+  short_description: "Rewrite rough prompts into clear, structured prompts"
+  default_prompt: "Use $prompt-optimizer followed by any rough prompt; the trailing text will be optimized into a clear, structured, executable prompt."
