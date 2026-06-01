@@ -1,0 +1,4 @@
+interface:
+  display_name: "Uniapp Miniapp Test"
+  short_description: "Test uni-app WeChat mini programs with AI-driven tooling"
+  default_prompt: "Use $uniapp-miniapp-test to test a uni-app WeChat mini program change with HBuilderX, WeChat DevTools CLI, logs, and manual fallback steps."

@@ -6,12 +6,14 @@
 
 - `prompt-optimizer`：优化、结构化和修复提示词。
 - `git-work-report`：根据 Git 提交记录生成工作报告。
+- `uniapp-miniapp-test`：用 AI 实际测试 uni-app 微信小程序改动。
 
 ## 安装
 
 ```bash
 npx skills add https://github.com/macaque0/skills.git --skill prompt-optimizer
 npx skills add https://github.com/macaque0/skills.git --skill git-work-report
+npx skills add https://github.com/macaque0/skills.git --skill uniapp-miniapp-test
 ```
 
 ## 目录结构
@@ -24,6 +26,9 @@ skills/
     SKILL.md
     references/
     scripts/
+  uniapp-miniapp-test/
+    SKILL.md
+    references/
 ```
 
 ## 维护规则
