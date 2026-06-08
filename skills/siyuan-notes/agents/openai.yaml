@@ -1,7 +1,7 @@
 interface:
   display_name: "SiYuan Notes"
   short_description: "收集、创建并整理思源笔记"
-  default_prompt: "Use $siyuan-notes to collect this material into SiYuan as a structured note."
+  default_prompt: "使用 $siyuan-notes 把下面内容整理成中文思源笔记，并写入指定笔记本。"
 
 policy:
   allow_implicit_invocation: true
