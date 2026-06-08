@@ -7,6 +7,7 @@
 - `prompt-optimizer`：优化、结构化和修复提示词。
 - `git-work-report`：根据 Git 提交记录生成工作报告。
 - `uniapp-miniapp-test`：用 AI 实际测试 uni-app 微信小程序改动。
+- `siyuan-notes`：通过思源本地 API 收集、创建和整理笔记。
 
 ## 安装
 
@@ -14,6 +15,7 @@
 npx skills add https://github.com/macaque0/skills.git --skill prompt-optimizer
 npx skills add https://github.com/macaque0/skills.git --skill git-work-report
 npx skills add https://github.com/macaque0/skills.git --skill uniapp-miniapp-test
+npx skills add https://github.com/macaque0/skills.git --skill siyuan-notes
 ```
 
 ## 目录结构
@@ -29,6 +31,10 @@ skills/
   uniapp-miniapp-test/
     SKILL.md
     references/
+  siyuan-notes/
+    SKILL.md
+    references/
+    scripts/
 ```
 
 ## 维护规则
