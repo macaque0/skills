@@ -16,6 +16,13 @@ from typing import Any
 DEFAULT_BASE_URL = "http://127.0.0.1:6806"
 
 
+def configure_stdio() -> None:
+    for stream_name in ("stdout", "stderr"):
+        stream = getattr(sys, stream_name, None)
+        if hasattr(stream, "reconfigure"):
+            stream.reconfigure(encoding="utf-8", errors="replace")
+
+
 def post_json(base_url: str, endpoint: str, payload: dict[str, Any] | None = None) -> Any:
     token = os.environ.get("SIYUAN_TOKEN", "")
     endpoint = endpoint if endpoint.startswith("/") else "/" + endpoint
@@ -45,7 +52,8 @@ def post_json(base_url: str, endpoint: str, payload: dict[str, Any] | None = Non
 
 
 def print_result(result: Any) -> int:
-    print(json.dumps(result, ensure_ascii=False, indent=2))
+    sys.stdout.write(json.dumps(result, ensure_ascii=False, indent=2))
+    sys.stdout.write("\n")
     if isinstance(result, dict) and result.get("code", 0) != 0:
         return 1
     return 0
@@ -246,6 +254,7 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def main() -> int:
+    configure_stdio()
     parser = build_parser()
     args = parser.parse_args()
     try:
